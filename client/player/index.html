@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Quizzer</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="/">Log out</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav>
+<div class="container">
+  <div class="jumbotron">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{title}}</h3>
+      </div>
+      <div class="panel-body">
+        <div ng-show="state.alert" class="alert alert-warning" role="alert">
+          <a href="#" class="alert-link">{{alert}}</a>
+        </div>
+
+        <div ng-show="state.setTeamname">
+          <p>Which quiz? </p>
+          <input type="text" class="form-control" ng-model="quizname"></input><br/>
+          <p>What's your teamname?</p>
+          <input type="text" class="form-control" ng-model="teamname"></input><br/>
+          <a ng-click="setATeamname(teamname, quizname)" class="btn btn-primary" role="button">Set Teamname</a>
+        </div>
+
+        <div ng-show="state.pendingforquestion">
+          <div class="alert alert-warning" role="alert">
+            <p class="alert-link">It's gonna be Legen!! .. Wait for it.. Dary! Legendary!</p>
+          </div>
+        </div>
+
+        <div ng-show="state.question">
+          <p>{{question.question}}</p>
+          <input type='text' class="form-control" ng-model="playersAnswer"></input><br/>
+          <a ng-click='playerAnswered(playersAnswer)' class="btn btn-primary" role="button">Submit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
